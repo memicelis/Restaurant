@@ -1,9 +1,9 @@
+import { mealsDB } from './api.js';
+import commentsPopup from './comments.js';
 const itemsContainer = document.getElementById('main-section');
 
 const displayMeals = async () => {
-  const response = await fetch(
-    'https://www.themealdb.com/api/json/v1/1/search.php?f=l'
-  );
+  const response = await fetch(mealsDB);
 
   const data = await response.json();
   data.meals.forEach((item) => {
@@ -24,6 +24,9 @@ const displayMeals = async () => {
     commentButton.textContent = 'Comments';
     commentButton.classList.add('btn');
     mealCard.appendChild(commentButton);
+    commentButton.addEventListener('click', () => {
+      commentsPopup(item.idMeal);
+    });
 
     const reservationsButton = document.createElement('button');
     reservationsButton.textContent = 'Reservations';

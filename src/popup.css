@@ -1,0 +1,65 @@
+.popup {
+  position: fixed;
+  background: #c1c7d090;
+  backdrop-filter: blur(4px);
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+}
+
+.window {
+  background-color: aliceblue;
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  top: 3rem;
+  transform: translate(-50%, 0);
+  width: 60vw;
+  height: 90vh;
+  color: blue;
+  overflow: scroll;
+  padding: 2rem;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 65%;
+}
+
+.popup-image {
+  width: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  cursor: pointer;
+  font-size: 48px;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 20px;
+}
+
+.details a {
+  text-decoration: none;
+  color: blue;
+}
