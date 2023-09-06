@@ -1,5 +1,6 @@
-import { mealsDB } from './api.js';
+import mealsDB from './api.js';
 import commentsPopup from './comments.js';
+
 const itemsContainer = document.getElementById('main-section');
 
 const displayMeals = async () => {

@@ -1,11 +1,10 @@
-import { mealsDB } from './api.js';
+import mealsDB from './api.js';
 import '../popup.css';
 
 const commentsPopup = async (id) => {
   const response = await fetch(mealsDB);
   const data = await response.json();
   const selectedMeal = data.meals.find((item) => item.idMeal === id);
-  console.log(selectedMeal);
 
   const popup = document.createElement('div');
   popup.classList.add('popup');
