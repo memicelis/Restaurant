@@ -4,7 +4,41 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .hello {
   color: red;
-  background: url('./images/logo.png');
+}
+
+header {
+  padding: 5% 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  background-image: url('images/logo.png');
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navigation {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  font-size: 24px;
+}
+
+footer {
+  padding: 5% 10%;
+}
+
+.author {
+  text-decoration: none;
+  color: blue;
 }
