@@ -1,4 +1,4 @@
-import mealsDB from './api.js';
+import { mealsDB } from './api.js';
 import '../popup.css';
 
 const reservationsPopup = async (id) => {
