@@ -1,5 +1,6 @@
 import mealsDB from './api.js';
 import commentsPopup from './comments.js';
+import reservationsPopup from './reservations.js';
 
 const itemsContainer = document.getElementById('main-section');
 
@@ -33,6 +34,9 @@ const displayMeals = async () => {
     reservationsButton.textContent = 'Reservations';
     reservationsButton.classList.add('btn');
     mealCard.appendChild(reservationsButton);
+    reservationsButton.addEventListener('click', () => {
+      reservationsPopup(item.idMeal);
+    });
 
     itemsContainer.appendChild(mealCard);
   });
