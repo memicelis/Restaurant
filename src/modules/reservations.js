@@ -1,4 +1,5 @@
 import { mealsDB, reservationsDB } from './api.js';
+import reservationsCounter from './reservationsCounter.js';
 import '../popup.css';
 
 const reservationsPopup = async (id) => {
@@ -73,6 +74,7 @@ const reservationsPopup = async (id) => {
       reservations.appendChild(reserveItem);
     });
   }
+  reservationsCounter();
 };
 
 export default reservationsPopup;

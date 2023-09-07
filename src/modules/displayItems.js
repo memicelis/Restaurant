@@ -1,6 +1,6 @@
 import { mealsDB, likesDB } from './api.js';
-
 import commentsPopup from './comments.js';
+import mealsCounter from './itemCounter.js';
 import reservationsPopup from './reservations.js';
 
 const itemsContainer = document.getElementById('main-section');
@@ -52,6 +52,6 @@ const displayMeals = async () => {
 
     itemsContainer.appendChild(mealCard);
   });
+  mealsCounter();
 };
-
 export default displayMeals;
