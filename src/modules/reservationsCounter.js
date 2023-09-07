@@ -1,4 +1,4 @@
-const reservationsCounter = async () => {
+const reservationsCounter = () => {
   const reservations = document.querySelectorAll('.reserve-list-item');
   const title = document.querySelector('.title-reservations');
 

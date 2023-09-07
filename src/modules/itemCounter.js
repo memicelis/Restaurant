@@ -1,10 +1,8 @@
-import { mealsDB } from './api.js';
-
 const mealsLink = document.getElementById('meals-count');
-const mealsCounter = async () => {
-  const response = await fetch(mealsDB);
-  const data = await response.json();
-  mealsLink.innerHTML = `Meals(${data.meals.length})`;
+const mealsCounter = () => {
+  const meals = document.querySelectorAll('.meal-card');
+  const numberOfElements = meals.length;
+  mealsLink.innerHTML = `Meals(${numberOfElements})`;
 };
 
 export default mealsCounter;

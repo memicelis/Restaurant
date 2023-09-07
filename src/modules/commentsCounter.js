@@ -1,4 +1,4 @@
-const commentsCounter = async () => {
+const commentsCounter = () => {
   const comments = document.querySelectorAll('.comments-list-item');
   const title = document.querySelector('.title-comments');
 
