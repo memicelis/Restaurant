@@ -1,5 +1,4 @@
 import { mealsDB, likesDB } from './api.js';
-
 import commentsPopup from './comments.js';
 import reservationsPopup from './reservations.js';
 
@@ -53,5 +52,4 @@ const displayMeals = async () => {
     itemsContainer.appendChild(mealCard);
   });
 };
-
 export default displayMeals;

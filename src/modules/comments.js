@@ -1,5 +1,6 @@
 import { mealsDB, commentsDB } from './api.js';
 import '../popup.css';
+import commentsCounter from './commentsCounter.js';
 
 const commentsPopup = async (id) => {
   const response = await fetch(mealsDB);
@@ -73,6 +74,8 @@ const commentsPopup = async (id) => {
       comments.appendChild(commentsItem);
     });
   }
+
+  commentsCounter();
 };
 
 export default commentsPopup;
