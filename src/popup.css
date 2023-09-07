@@ -75,3 +75,14 @@
   background-color: white;
   padding: 5px;
 }
+
+.reservations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  list-style: none;
+  border: 1px solid blue;
+  background-color: white;
+  padding: 5px;
+}

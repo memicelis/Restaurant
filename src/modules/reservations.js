@@ -1,10 +1,18 @@
 import { mealsDB } from './api.js';
+import { reservationsDB } from './api.js';
 import '../popup.css';
 
 const reservationsPopup = async (id) => {
   const response = await fetch(mealsDB);
   const data = await response.json();
   const selectedMeal = data.meals.find((item) => item.idMeal === id);
+
+  const responseReservations = await fetch(
+    reservationsDB + `item_id=${selectedMeal.idMeal}`
+  );
+
+  const dataReservations = await responseReservations.json();
+  console.log(dataReservations);
 
   const popup = document.createElement('div');
   popup.classList.add('popup');
@@ -48,6 +56,25 @@ const reservationsPopup = async (id) => {
     <p class="meal" id="meal">Video: <a href="${selectedMeal.strYoutube}" class="meal" id="meal" target="_blank">Youtube</a></p>`;
 
   window.appendChild(detailsPopup);
+
+  const titleReservations = document.createElement('h2');
+  titleReservations.classList.add('title-reservations');
+  titleReservations.innerText = 'Reservations';
+
+  window.appendChild(titleReservations);
+
+  const reservations = document.createElement('ul');
+  reservations.classList.add('reservations-list');
+
+  if (dataReservations && dataReservations.length > 0) {
+    window.appendChild(reservations);
+    dataReservations.forEach((item) => {
+      const reserveItem = document.createElement('li');
+      reserveItem.classList.add('reserve-list-item');
+      reserveItem.innerHTML = `${item.date_start} - ${item.date_end} by ${item.username}`;
+      reservations.appendChild(reserveItem);
+    });
+  }
 };
 
 export default reservationsPopup;
