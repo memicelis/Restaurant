@@ -1,10 +1,16 @@
-import { mealsDB } from './api.js';
+import { mealsDB, commentsDB } from './api.js';
 import '../popup.css';
 
 const commentsPopup = async (id) => {
   const response = await fetch(mealsDB);
   const data = await response.json();
   const selectedMeal = data.meals.find((item) => item.idMeal === id);
+
+  const responseComments = await fetch(
+    `${commentsDB}item_id=${selectedMeal.idMeal}`
+  );
+
+  const dataComments = await responseComments.json();
 
   const popup = document.createElement('div');
   popup.classList.add('popup');
@@ -48,6 +54,25 @@ const commentsPopup = async (id) => {
     <p class="meal" id="meal">Video: <a href="${selectedMeal.strYoutube}" class="meal" id="meal" target="_blank">Youtube</a></p>`;
 
   window.appendChild(detailsPopup);
+
+  const titleComments = document.createElement('h2');
+  titleComments.classList.add('title-comments');
+  titleComments.innerText = 'Comments';
+
+  window.appendChild(titleComments);
+
+  const comments = document.createElement('ul');
+  comments.classList.add('comments-list');
+
+  if (dataComments && dataComments.length > 0) {
+    window.appendChild(comments);
+    dataComments.forEach((item) => {
+      const commentsItem = document.createElement('li');
+      commentsItem.classList.add('comments-list-item');
+      commentsItem.innerHTML = `${item.creation_date} ${item.username}: ${item.comment}`;
+      comments.appendChild(commentsItem);
+    });
+  }
 };
 
 export default commentsPopup;
