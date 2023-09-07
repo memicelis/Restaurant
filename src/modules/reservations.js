@@ -1,5 +1,4 @@
-import { mealsDB } from './api.js';
-import { reservationsDB } from './api.js';
+import { mealsDB, reservationsDB } from './api.js';
 import '../popup.css';
 
 const reservationsPopup = async (id) => {
@@ -8,11 +7,10 @@ const reservationsPopup = async (id) => {
   const selectedMeal = data.meals.find((item) => item.idMeal === id);
 
   const responseReservations = await fetch(
-    reservationsDB + `item_id=${selectedMeal.idMeal}`
+    `${reservationsDB}item_id=${selectedMeal.idMeal}`
   );
 
   const dataReservations = await responseReservations.json();
-  console.log(dataReservations);
 
   const popup = document.createElement('div');
   popup.classList.add('popup');
