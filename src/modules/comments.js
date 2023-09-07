@@ -1,5 +1,4 @@
-import { mealsDB } from './api.js';
-import { commentsDB } from './api.js';
+import { mealsDB, commentsDB } from './api.js';
 import '../popup.css';
 
 const commentsPopup = async (id) => {
@@ -8,11 +7,10 @@ const commentsPopup = async (id) => {
   const selectedMeal = data.meals.find((item) => item.idMeal === id);
 
   const responseComments = await fetch(
-    commentsDB + `item_id=${selectedMeal.idMeal}`
+    `${commentsDB}item_id=${selectedMeal.idMeal}`
   );
 
   const dataComments = await responseComments.json();
-  console.log(dataComments);
 
   const popup = document.createElement('div');
   popup.classList.add('popup');
@@ -72,7 +70,6 @@ const commentsPopup = async (id) => {
       const commentsItem = document.createElement('li');
       commentsItem.classList.add('comments-list-item');
       commentsItem.innerHTML = `${item.creation_date} ${item.username}: ${item.comment}`;
-      console.log(item.comment);
       comments.appendChild(commentsItem);
     });
   }
