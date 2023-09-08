@@ -1,3 +1,4 @@
+import addLike from './addLike.js';
 import { mealsDB, likesDB } from './api.js';
 import commentsPopup from './comments.js';
 import mealsCounter from './itemCounter.js';
@@ -25,14 +26,27 @@ const displayMeals = async () => {
     image.alt = item.strMeal;
     mealCard.appendChild(image);
 
+    const titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
+    mealCard.appendChild(titleContainer);
+
     const title = document.createElement('p');
     title.textContent = item.strMeal;
-    mealCard.appendChild(title);
+    titleContainer.appendChild(title);
+
+    const likeButton = document.createElement('a');
+    likeButton.classList.add('like-icon');
+    likeButton.innerHTML = '💙';
+    titleContainer.appendChild(likeButton);
 
     const likesCounter = document.createElement('p');
     likesCounter.classList.add('num-likes');
-    likesCounter.innerText = `Number of likes: ${likesMap[item.idMeal]}` || 0;
+    likesCounter.innerText = `${likesMap[item.idMeal]} Likes` || '0 Likes';
     mealCard.appendChild(likesCounter);
+
+    likeButton.addEventListener('click', () => {
+      addLike(item.idMeal, likesCounter);
+    });
 
     const commentButton = document.createElement('button');
     commentButton.textContent = 'Comments';
