@@ -1,5 +1,6 @@
 import { mealsDB, reservationsDB } from './api.js';
 import reservationsCounter from './reservationsCounter.js';
+import addReservation from './addReservation.js';
 import '../popup.css';
 
 const reservationsPopup = async (id) => {
@@ -64,9 +65,8 @@ const reservationsPopup = async (id) => {
 
   const reservations = document.createElement('ul');
   reservations.classList.add('reservations-list');
-
+  window.appendChild(reservations);
   if (dataReservations && dataReservations.length > 0) {
-    window.appendChild(reservations);
     dataReservations.forEach((item) => {
       const reserveItem = document.createElement('li');
       reserveItem.classList.add('reserve-list-item');
@@ -74,6 +74,62 @@ const reservationsPopup = async (id) => {
       reservations.appendChild(reserveItem);
     });
   }
+
+  const inputContainer = document.createElement('form');
+  inputContainer.classList.add('input-container');
+  inputContainer.innerHTML = '<h3>Add a comment</h3>';
+  window.appendChild(inputContainer);
+
+  const inputName = document.createElement('input');
+  inputName.setAttribute('type', 'text');
+  inputName.classList.add('input');
+  inputName.setAttribute('placeholder', 'Your name');
+  inputName.setAttribute('required', '');
+
+  const inputStartDate = document.createElement('input');
+  inputStartDate.setAttribute('type', 'date');
+  inputStartDate.classList.add('input-date');
+  inputStartDate.setAttribute('id', 'start-date');
+  inputStartDate.setAttribute('required', '');
+
+  const inputEndDate = document.createElement('input');
+  inputEndDate.setAttribute('type', 'date');
+  inputStartDate.setAttribute('id', 'end-date');
+  inputEndDate.classList.add('input-date');
+  inputEndDate.setAttribute('required', '');
+
+  const labelStartDate = document.createElement('label');
+  labelStartDate.setAttribute('for', 'start-date');
+  labelStartDate.textContent = 'Start Date';
+
+  const labelEndDate = document.createElement('label');
+  labelEndDate.setAttribute('for', 'end-date');
+  labelEndDate.textContent = 'End Date';
+
+  const reserveButton = document.createElement('button');
+  reserveButton.setAttribute('type', 'submit');
+  reserveButton.classList.add('comment-button');
+  reserveButton.innerText = 'Reserve';
+
+  inputContainer.appendChild(inputName);
+  inputContainer.appendChild(labelStartDate);
+  inputContainer.appendChild(inputStartDate);
+  inputContainer.appendChild(labelEndDate);
+  inputContainer.appendChild(inputEndDate);
+  inputContainer.appendChild(reserveButton);
+
+  inputContainer.addEventListener('submit', (event) => {
+    event.preventDefault();
+    addReservation(
+      id,
+      inputName.value,
+      inputStartDate.value,
+      inputEndDate.value
+    );
+    inputName.value = '';
+    inputStartDate.value = '';
+    inputEndDate.value = '';
+  });
   reservationsCounter();
 };
 
