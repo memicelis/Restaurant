@@ -17,9 +17,8 @@ const addReservation = async (id, user, start, end) => {
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const responseReservations = await fetch(`${reservationsDB}item_id=${id}`);
-  console.log('id: ' + id + 'user ' + user + ' start' + start + 'end ' + end);
   const dataReservations = await responseReservations.json();
-  let reservations = document.querySelector('.reservations-list');
+  const reservations = document.querySelector('.reservations-list');
   reservations.innerHTML = '';
   dataReservations.forEach((item) => {
     const reserveItem = document.createElement('li');

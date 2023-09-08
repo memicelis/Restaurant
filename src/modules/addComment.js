@@ -18,7 +18,7 @@ const addComment = async (id, user, text) => {
   const responseComments = await fetch(`${commentsDB}item_id=${id}`);
 
   const dataComments = await responseComments.json();
-  let comments = document.querySelector('.comments-list');
+  const comments = document.querySelector('.comments-list');
   comments.innerHTML = '';
   dataComments.forEach((item) => {
     const commentsItem = document.createElement('li');
