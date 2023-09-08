@@ -1,6 +1,7 @@
 import { mealsDB, commentsDB } from './api.js';
 import '../popup.css';
 import commentsCounter from './commentsCounter.js';
+import addComment from './addComment.js';
 
 const commentsPopup = async (id) => {
   const response = await fetch(mealsDB);
@@ -66,7 +67,6 @@ const commentsPopup = async (id) => {
   comments.classList.add('comments-list');
 
   if (dataComments && dataComments.length > 0) {
-    window.appendChild(comments);
     dataComments.forEach((item) => {
       const commentsItem = document.createElement('li');
       commentsItem.classList.add('comments-list-item');
@@ -74,7 +74,39 @@ const commentsPopup = async (id) => {
       comments.appendChild(commentsItem);
     });
   }
+  window.appendChild(comments);
+  const inputContainer = document.createElement('form');
+  inputContainer.classList.add('input-container');
+  inputContainer.innerHTML = '<h3>Add a comment</h3>';
+  window.appendChild(inputContainer);
 
+  const inputName = document.createElement('input');
+  inputName.setAttribute('type', 'text');
+  inputName.classList.add('input');
+  inputName.setAttribute('placeholder', 'Your name');
+  inputName.setAttribute('required', '');
+
+  const inputComment = document.createElement('input');
+  inputComment.setAttribute('type', 'text');
+  inputComment.classList.add('input');
+  inputComment.setAttribute('placeholder', 'Your insights');
+  inputComment.setAttribute('required', '');
+
+  const commentButton = document.createElement('button');
+  commentButton.setAttribute('type', 'submit');
+  commentButton.classList.add('comment-button');
+  commentButton.innerText = 'Comment';
+
+  inputContainer.appendChild(inputName);
+  inputContainer.appendChild(inputComment);
+  inputContainer.appendChild(commentButton);
+
+  inputContainer.addEventListener('submit', (event) => {
+    event.preventDefault();
+    addComment(id, inputName.value, inputComment.value);
+    inputName.value = '';
+    inputComment.value = '';
+  });
   commentsCounter();
 };
 
