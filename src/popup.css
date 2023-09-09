@@ -142,6 +142,7 @@
 .input-date::placeholder {
   color: rgba(0, 0, 255, 0.273);
 }
+
 @media (min-width: 425px) and (max-width: 764px) {
   .num-likes {
     margin-top: -16px;
