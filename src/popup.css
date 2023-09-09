@@ -40,7 +40,7 @@
 
 .close {
   position: absolute;
-  top: 0rem;
+  top: 0;
   right: 0.5rem;
   cursor: pointer;
   font-size: 24px;
@@ -147,7 +147,7 @@
   color: rgba(0, 0, 255, 0.273);
 }
 
-@media (min-width: 0px) and (max-width: 424px) {
+@media (min-width: 0) and (max-width: 424px) {
   .window {
     width: 90vw;
   }
@@ -156,6 +156,7 @@
     max-width: 100%;
     margin-top: 200%;
   }
+
   .close {
     right: 0.5rem;
   }
@@ -208,7 +209,7 @@
 @media (min-width: 1024px) {
   .close {
     position: absolute;
-    top: 0rem;
+    top: 0;
     right: 1rem;
     cursor: pointer;
     font-size: 36px;
