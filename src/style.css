@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: aliceblue;
 }
 
 header {
@@ -46,8 +47,12 @@ header {
   justify-content: center;
   gap: 10px;
   padding: 5px;
-  background-color: aliceblue;
+  background-color: royalblue;
   width: 100%;
+}
+
+.image-container {
+  max-width: 100%;
 }
 
 .image {
@@ -66,8 +71,8 @@ footer {
 .btn {
   font-size: 16px;
   padding: 10px 20px;
-  color: blue;
-  background-color: rgb(240, 245, 255);
+  color: #fff;
+  background-color: blue;
   border: 1px solid blue;
   border-radius: 5px;
   cursor: pointer;
@@ -76,8 +81,8 @@ footer {
 
 .btn:hover {
   transform: scale(1.1);
-  background-color: blue;
-  color: #fff;
+  background-color: rgb(240, 245, 255);
+  color: blue;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -89,9 +94,19 @@ footer {
   padding: 2px;
 }
 
+.title-meal {
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; /* Ensure title doesn't overflow */
+  font-size: 16px; /* Set a base font size */
+}
+
 .num-likes {
+  color: #fff;
   width: 100%;
   text-align: end;
+  margin-top: -25px;
 }
 
 .like-icon {
@@ -103,4 +118,42 @@ footer {
 .like-icon:hover {
   transform: scale(1.2);
   color: #fff;
+}
+
+@media (min-width: 0) and (max-width: 424px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .title-meal {
+    height: 55px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 765px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .title-meal {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .title-meal {
+    height: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title-meal {
+    height: 65px;
+    font-size: 24px;
+  }
 }

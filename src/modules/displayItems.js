@@ -20,17 +20,22 @@ const displayMeals = async () => {
     const mealCard = document.createElement('div');
     mealCard.classList.add('meal-card');
 
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('image-container');
+    mealCard.appendChild(imageContainer);
+
     const image = document.createElement('img');
     image.classList.add('image');
     image.src = item.strMealThumb;
     image.alt = item.strMeal;
-    mealCard.appendChild(image);
+    imageContainer.appendChild(image);
 
     const titleContainer = document.createElement('div');
     titleContainer.classList.add('title-container');
     mealCard.appendChild(titleContainer);
 
     const title = document.createElement('p');
+    title.classList.add('title-meal');
     title.textContent = item.strMeal;
     titleContainer.appendChild(title);
 
