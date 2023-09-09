@@ -22,15 +22,6 @@ const reservationsPopup = async (id) => {
   window.classList.add('window');
   popup.appendChild(window);
 
-  const imageContainer = document.createElement('div');
-  imageContainer.classList.add('img-container');
-  window.appendChild(imageContainer);
-  const image = document.createElement('img');
-  image.classList.add('popup-image');
-  image.src = selectedMeal.strMealThumb;
-
-  imageContainer.appendChild(image);
-
   const closeButton = document.createElement('a');
   closeButton.classList.add('close');
   closeButton.innerHTML = 'X';
@@ -39,6 +30,15 @@ const reservationsPopup = async (id) => {
   });
 
   window.appendChild(closeButton);
+
+  const imageContainer = document.createElement('div');
+  imageContainer.classList.add('img-container');
+  window.appendChild(imageContainer);
+  const image = document.createElement('img');
+  image.classList.add('popup-image');
+  image.src = selectedMeal.strMealThumb;
+
+  imageContainer.appendChild(image);
 
   const mealName = document.createElement('p');
   mealName.classList.add('title');
