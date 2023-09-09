@@ -8,7 +8,7 @@ describe('Testing reservations counter on reservations popup', () => {
       `;
   });
 
-  it('Updates reservations count when there are .reserve-list-item elements', () => {
+  it('Updates reservations count when there are reservations', () => {
     const title = document.querySelector('.title-reservations');
 
     const reserve1 = document.createElement('li');
@@ -28,7 +28,7 @@ describe('Testing reservations counter on reservations popup', () => {
     expect(title.innerHTML).toBe('Reservations(2)');
   });
 
-  it('Updates meals count when there are no .reserve-list-item elements', () => {
+  it('Updates reservations count when there are no reservations', () => {
     // Create a div element with an ID matching your HTML structure
     const title = document.querySelector('.title-reservations');
 

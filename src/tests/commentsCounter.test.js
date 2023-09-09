@@ -8,7 +8,7 @@ describe('Testing comments counter on comments popup', () => {
       `;
   });
 
-  it('Updates comments count when there are .comment-list-item elements', () => {
+  it('Updates comments count when there are comments', () => {
     const title = document.querySelector('.title-comments');
 
     const comment1 = document.createElement('li');
@@ -28,7 +28,7 @@ describe('Testing comments counter on comments popup', () => {
     expect(title.innerHTML).toBe('Comments(2)');
   });
 
-  it('Updates meals count when there are no .comment-list-item elements', () => {
+  it('Updates comments count when there are no comments', () => {
     // Create a div element with an ID matching your HTML structure
     const title = document.querySelector('.title-comments');
 
