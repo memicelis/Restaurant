@@ -1,4 +1,4 @@
-import mealsCounter from '../../src/modules/itemCounter.js';
+import mealsCounter from '../modules/itemCounter.js';
 
 describe('Testing item counter', () => {
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('Testing item counter', () => {
   });
 
   it('Updates meals counter when there are meals cards on meals page', () => {
-    //Arrange elements
+    // Arrange elements
     const mealsLink = document.getElementById('meals-count');
     const mealCard1 = document.createElement('div');
     mealCard1.className = 'meal-card';
