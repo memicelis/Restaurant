@@ -1,0 +1,199 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(151, 148, 147, 0.8);
+  z-index: 2;
+}
+
+.window {
+  background-color: royalblue;
+  color: #fff;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 90%;
+  width: 90%;
+  overflow: scroll;
+  left: 50%;
+  top: 6%;
+  padding: 16px;
+  transform: translate(-50%, 0);
+  align-items: center;
+}
+
+.img-container {
+  height: 40vh;
+}
+
+.popup-image {
+  height: 100%;
+}
+
+.close {
+  display: flex;
+  align-self: flex-end;
+  cursor: pointer;
+  font-size: 24px;
+  padding-right: 0.5rem;
+  margin-bottom: -16px;
+}
+
+.title {
+  font-size: 36px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 20px;
+}
+
+.details a {
+  text-decoration: none;
+  color: lightcoral;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  list-style: none;
+  border: 1px solid blue;
+  background-color: aliceblue;
+  padding: 5px;
+  color: blue;
+}
+
+.comments-list:empty {
+  display: none;
+}
+
+.reservations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  list-style: none;
+  border: 1px solid blue;
+  background-color: aliceblue;
+  color: blue;
+  padding: 5px;
+}
+
+.reservations-list:empty {
+  display: none;
+}
+
+/* ADD COMMENTS */
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.input {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: blue;
+  background-color: aliceblue;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 255, 0.273);
+}
+
+.comment-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.comment-button:hover {
+  transform: scale(1.1);
+  background-color: rgb(240, 245, 255);
+  color: blue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.input-date {
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: blue;
+  width: 100%;
+}
+
+.input-date::placeholder {
+  color: rgba(0, 0, 255, 0.273);
+}
+
+@media (min-width: 425px) and (max-width: 764px) {
+  .num-likes {
+    margin-top: -16px;
+  }
+}
+
+@media (max-width: 765px) {
+  .window {
+    width: 90vw;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .window {
+    width: 45%;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .meal {
+    height: 44px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .num-likes {
+    margin-top: -10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .window {
+    width: 45%;
+  }
+
+  .meal {
+    height: 44px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .num-likes {
+    margin-top: -24px;
+  }
+}
