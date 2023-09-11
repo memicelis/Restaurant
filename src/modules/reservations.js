@@ -77,7 +77,7 @@ const reservationsPopup = async (id) => {
 
   const inputContainer = document.createElement('form');
   inputContainer.classList.add('input-container');
-  inputContainer.innerHTML = '<h3>Add a comment</h3>';
+  inputContainer.innerHTML = '<h3>Add a reservation</h3>';
   window.appendChild(inputContainer);
 
   const inputName = document.createElement('input');
